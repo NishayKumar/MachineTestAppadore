@@ -1,18 +1,28 @@
+//import SwiftUI
 //
-//  QuestionsView.swift
-//  MachineTestAppadore
-//
-//  Created by Nishay Kumar on 28/02/25.
-//
-
-import SwiftUI
-
-struct QuestionsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    QuestionsView()
-}
+//struct QuestionsView: View {
+//    @StateObject private var viewModel = QuestionViewModel()
+//    
+//    var body: some View {
+//        NavigationView {
+//            List(viewModel.questions) { question in
+//                Section(header: Text("Country Code: \(question.countryCode)"), footer: Text("Answer ID: \(question.answerId)")
+//                ) {
+//                    ForEach(question.countries) { country in
+//                        HStack {
+//                            Text(country.countryName)
+//                            Spacer()
+//                            Text("ID: \(country.id)")
+//                                .foregroundColor(.gray)
+//                        }
+//                    }
+//                }
+//            }
+//            .navigationTitle("Questions")
+//        }
+//    }
+//}
+////footer: Text("Answer ID: \(question.answerID)")
+//#Preview {
+//    QuestionsView()
+//}

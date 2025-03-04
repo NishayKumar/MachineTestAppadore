@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		9D04691B2D75CED200553B14 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		9D5661472D6DDDCA009B96CD /* MachineTestAppadore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineTestAppadore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9D04691A2D75CEB700553B14 /* Exceptions for "MachineTestAppadore" folder in "MachineTestAppadore" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				View/Untitled.swift,
+			);
+			target = 9D5661462D6DDDCA009B96CD /* MachineTestAppadore */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9D5661492D6DDDCA009B96CD /* MachineTestAppadore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9D04691A2D75CEB700553B14 /* Exceptions for "MachineTestAppadore" folder in "MachineTestAppadore" target */,
+			);
 			path = MachineTestAppadore;
 			sourceTree = "<group>";
 		};
@@ -34,6 +48,7 @@
 			children = (
 				9D5661492D6DDDCA009B96CD /* MachineTestAppadore */,
 				9D5661482D6DDDCA009B96CD /* Products */,
+				9D04691B2D75CED200553B14 /* Untitled.swift */,
 			);
 			sourceTree = "<group>";
 		};

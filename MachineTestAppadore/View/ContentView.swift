@@ -1,86 +1,66 @@
-//
-//  ContentView.swift
-//  MachineTestAppadore
-//
-//  Created by Nishay Kumar on 25/02/25.
-//
-
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+        VStack {
+            Rectangle()
+                .fill(.accent)
+                .ignoresSafeArea()
+                .frame(height: 100)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(UIColor.systemGray5))
+                    .frame(height: 350)
+                    .padding(.horizontal, 2)
+                
+                VStack(spacing: 0) {
+                    headerView()
+                    Rectangle() // divider
+                        .fill(.gray)
+                        .opacity(0.5)
+                        .frame(height: 1)
+                    MainView()
                 }
-                .onDelete(perform: deleteItems)
+                .padding(.horizontal, 2)
+                .frame(height: 350, alignment: .top)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            
+            Spacer()
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+
+extension ContentView {
+    func headerView() -> some View {
+        
+        HStack(alignment: .center) {
+            ZStack{
+                Rectangle()
+                    .opacity(0.8)
+                    .clipShape(.rect(topLeadingRadius: 10, bottomTrailingRadius: 10, topTrailingRadius: 10))
+                    .frame(width: 100, height: 70)
+                Text("00:00")
+                    .foregroundStyle(.white)
+                    .font(.title3.bold())
+                
+            }
+            Spacer()
+            Text("Flags Challenge")
+                .font(.title3.bold())
+                .textCase(.uppercase)
+                .foregroundStyle(.accent)
+                .frame(maxWidth: .infinity)
+                .offset(x: -25)
+            Spacer()
+        }
+        
+           
+    }
+}
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView()
 }
+
