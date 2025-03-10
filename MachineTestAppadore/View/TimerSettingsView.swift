@@ -1,21 +1,29 @@
 import SwiftUI
 
-struct MainView: View {
+struct TimerPickerView: View {
+    @ObservedObject var timerManager: TimerManager
     @State private var showCountdown = false
     @State private var hours = 0
     @State private var minutes = 0
     @State private var seconds = 0
+    @State private var showQuestions = false
     
     var body: some View {
-        if showCountdown {
+        if showQuestions {
+            QuestionsAnswersView(timerManager: timerManager)
+        } else if showCountdown {
             CountdownTimerView(
                 hours: hours,
                 minutes: minutes,
                 seconds: seconds,
-                showCountdown: $showCountdown
+                showCountdown: $showCountdown,
+                timerManager: timerManager,
+                onFinish: {
+                    showQuestions = true
+                }
             )
         } else {
-            TimerPickerView(
+            TimerSettingsView(
                 hours: $hours,
                 minutes: $minutes,
                 seconds: $seconds,
@@ -30,7 +38,7 @@ struct MainView: View {
 }
 
 
-struct TimerPickerView: View {
+struct TimerSettingsView: View {
     @Binding var hours: Int
     @Binding var minutes: Int
     @Binding var seconds: Int
@@ -152,34 +160,33 @@ struct CountdownTimerView: View {
     let totalSeconds: Int
     @State private var timeRemaining: Int
     @State private var timer: Timer? = nil
-    @State private var timerFinished = false
     @Binding var showCountdown: Bool
+    @ObservedObject var timerManager: TimerManager
+    var onFinish: () -> Void
     
-    init(hours: Int, minutes: Int, seconds: Int, showCountdown: Binding<Bool>) {
+    init(hours: Int, minutes: Int, seconds: Int, showCountdown: Binding<Bool>, timerManager: TimerManager, onFinish: @escaping () -> Void) {
         self.totalSeconds = hours * 3600 + minutes * 60 + seconds
         self._timeRemaining = State(initialValue: self.totalSeconds)
         self._showCountdown = showCountdown
+        self.timerManager = timerManager
+        self.onFinish = onFinish
     }
     
     var body: some View {
-        ZStack {
-            if timerFinished {
-                QuestionsAnswersView()
-            } else {
-                VStack(spacing: 5) {
-                    Text("CHALLENGE\nWILL START IN")
-                        .font(.title2.bold())
-                        .multilineTextAlignment(.center)
-                        .padding(.vertical, 10)
-                    Text(timeString(time: timeRemaining))
-                        .font(.system(size: 70, weight: .bold, design: .monospaced))
-                        .foregroundColor(.black)
-
-                }
-                .onAppear {
-                    startTimer()
-                }
-            }
+        VStack(spacing: 5) {
+            Text("CHALLENGE\nWILL START IN")
+                .font(.title2.bold())
+                .multilineTextAlignment(.center)
+                .padding(.vertical, 10)
+            Text(timeString(time: timeRemaining))
+                .font(.system(size: 70, weight: .bold, design: .monospaced))
+                .foregroundColor(.black)
+        }
+        .onAppear {
+            startTimer()
+        }
+        .onDisappear {
+            stopTimer()
         }
     }
     
@@ -206,25 +213,27 @@ struct CountdownTimerView: View {
         }
     }
     
-    func finishTimer() {
+    func stopTimer() {
         timer?.invalidate()
         timer = nil
-        timerFinished = true
     }
     
+    func finishTimer() {
+        stopTimer()
+        onFinish()
+    }
 }
-
 
 #Preview {
-    MainView()
+    TimerPickerView(timerManager: TimerManager())
 }
 
 
-#Preview {
-    CountdownTimerView(
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-        showCountdown: .constant(false)
-    )
-}
+//#Preview {
+//    CountdownTimerView(
+//        hours: 0,
+//        minutes: 0,
+//        seconds: 0,
+//        showCountdown: .constant(false)
+//    )
+//}
