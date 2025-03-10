@@ -1,11 +1,5 @@
-//
-//  MachineTestAppadoreApp.swift
-//  MachineTestAppadore
-//
-//  Created by Nishay Kumar on 25/02/25.
-//
-
 import SwiftUI
+import CoreData
 
 @main
 struct MachineTestAppadoreApp: App {

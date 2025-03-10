@@ -1,10 +1,3 @@
-//
-//  Persistence.swift
-//  MachineTestAppadore
-//
-//  Created by Nishay Kumar on 25/02/25.
-//
-
 import CoreData
 
 struct PersistenceController {

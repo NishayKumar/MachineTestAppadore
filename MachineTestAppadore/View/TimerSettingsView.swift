@@ -143,16 +143,6 @@ struct TimerSettingsView: View {
     }
 }
 
-struct ChallengeView: View {
-    var body: some View {
-        VStack{
-            Text("guess the country from the flag!")
-                .font(.title2.bold())
-                .padding(.vertical, 10)
-        }
-    }
-}
-
 
 
 
@@ -189,7 +179,16 @@ struct CountdownTimerView: View {
             stopTimer()
         }
     }
-    
+
+}
+
+#Preview {
+    TimerPickerView(timerManager: TimerManager())
+}
+
+
+extension CountdownTimerView {
+    // MARK: - Logic
     func timeString(time: Int) -> String {
         if totalSeconds >= 3600 {
             let hours = time / 3600
@@ -223,11 +222,6 @@ struct CountdownTimerView: View {
         onFinish()
     }
 }
-
-#Preview {
-    TimerPickerView(timerManager: TimerManager())
-}
-
 
 //#Preview {
 //    CountdownTimerView(

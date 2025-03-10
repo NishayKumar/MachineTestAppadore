@@ -1,7 +1,6 @@
 import Testing
 
-//import Testing
-@testable import MachineTestAppadore // Make sure to replace this with your actual app name
+@testable import MachineTestAppadore 
 
 struct QuestionModelTests {
     

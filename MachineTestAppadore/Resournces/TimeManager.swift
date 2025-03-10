@@ -2,8 +2,8 @@ import Foundation
 
 // MARK: - Timer Manager
 class TimerManager: ObservableObject {
-    @Published var secondsRemaining: Int = 40
-    @Published var formattedTime: String = "00:40"
+    @Published var secondsRemaining: Int = 30
+    @Published var formattedTime: String = "00:00"
     
     private var timer: Timer?
     private var onComplete: (() -> Void)?
@@ -33,9 +33,17 @@ class TimerManager: ObservableObject {
     }
     
     private func updateFormattedTime() {
-        let minutes = secondsRemaining / 60
-        let seconds = secondsRemaining % 60
-        formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        DispatchQueue.main.async {
+            let minutes = self.secondsRemaining / 60
+            let seconds = self.secondsRemaining % 60
+            self.formattedTime = String(format: "%02d:%02d", minutes, seconds)
+        }
+    }
+    
+    func resetFormattedTime() {
+        DispatchQueue.main.async {
+            self.formattedTime = "00:00"
+        }
     }
 }
 

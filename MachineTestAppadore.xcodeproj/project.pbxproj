@@ -6,33 +6,42 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		9D0469282D7B270400553B14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D56613F2D6DDDCA009B96CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D5661462D6DDDCA009B96CD;
+			remoteInfo = MachineTestAppadore;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		9D04691B2D75CED200553B14 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		9D0469242D7B270300553B14 /* MachineTestAppadoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MachineTestAppadoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5661472D6DDDCA009B96CD /* MachineTestAppadore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineTestAppadore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9D04691A2D75CEB700553B14 /* Exceptions for "MachineTestAppadore" folder in "MachineTestAppadore" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				View/Untitled.swift,
-			);
-			target = 9D5661462D6DDDCA009B96CD /* MachineTestAppadore */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		9D0469252D7B270400553B14 /* MachineTestAppadoreTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MachineTestAppadoreTests;
+			sourceTree = "<group>";
+		};
 		9D5661492D6DDDCA009B96CD /* MachineTestAppadore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9D04691A2D75CEB700553B14 /* Exceptions for "MachineTestAppadore" folder in "MachineTestAppadore" target */,
-			);
 			path = MachineTestAppadore;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9D0469212D7B270300553B14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D5661442D6DDDCA009B96CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,8 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				9D5661492D6DDDCA009B96CD /* MachineTestAppadore */,
+				9D0469252D7B270400553B14 /* MachineTestAppadoreTests */,
 				9D5661482D6DDDCA009B96CD /* Products */,
-				9D04691B2D75CED200553B14 /* Untitled.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5661472D6DDDCA009B96CD /* MachineTestAppadore.app */,
+				9D0469242D7B270300553B14 /* MachineTestAppadoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9D0469232D7B270300553B14 /* MachineTestAppadoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D04692A2D7B270400553B14 /* Build configuration list for PBXNativeTarget "MachineTestAppadoreTests" */;
+			buildPhases = (
+				9D0469202D7B270300553B14 /* Sources */,
+				9D0469212D7B270300553B14 /* Frameworks */,
+				9D0469222D7B270300553B14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D0469292D7B270400553B14 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9D0469252D7B270400553B14 /* MachineTestAppadoreTests */,
+			);
+			name = MachineTestAppadoreTests;
+			packageProductDependencies = (
+			);
+			productName = MachineTestAppadoreTests;
+			productReference = 9D0469242D7B270300553B14 /* MachineTestAppadoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9D5661462D6DDDCA009B96CD /* MachineTestAppadore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D56615A2D6DDDCC009B96CD /* Build configuration list for PBXNativeTarget "MachineTestAppadore" */;
@@ -95,6 +128,10 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					9D0469232D7B270300553B14 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 9D5661462D6DDDCA009B96CD;
+					};
 					9D5661462D6DDDCA009B96CD = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -115,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				9D5661462D6DDDCA009B96CD /* MachineTestAppadore */,
+				9D0469232D7B270300553B14 /* MachineTestAppadoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9D0469222D7B270300553B14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D5661452D6DDDCA009B96CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9D0469202D7B270300553B14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D5661432D6DDDCA009B96CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,7 +191,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9D0469292D7B270400553B14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D5661462D6DDDCA009B96CD /* MachineTestAppadore */;
+			targetProxy = 9D0469282D7B270400553B14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		9D04692B2D7B270400553B14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8VSLV855Z8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nishaykumar.MachineTestAppadoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MachineTestAppadore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MachineTestAppadore";
+			};
+			name = Debug;
+		};
+		9D04692C2D7B270400553B14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8VSLV855Z8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nishaykumar.MachineTestAppadoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MachineTestAppadore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MachineTestAppadore";
+			};
+			name = Release;
+		};
 		9D5661582D6DDDCC009B96CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -320,6 +416,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9D04692A2D7B270400553B14 /* Build configuration list for PBXNativeTarget "MachineTestAppadoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D04692B2D7B270400553B14 /* Debug */,
+				9D04692C2D7B270400553B14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9D5661422D6DDDCA009B96CD /* Build configuration list for PBXProject "MachineTestAppadore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

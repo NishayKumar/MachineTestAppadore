@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var timerManager = TimerManager()
+    @StateObject private var vm = QuestionViewModel()
+    
     var body: some View {
         VStack {
             Rectangle()
@@ -20,7 +23,7 @@ struct ContentView: View {
                         .fill(.gray)
                         .opacity(0.5)
                         .frame(height: 1)
-                    MainView()
+                    TimerPickerView(timerManager: timerManager)
                 }
                 .padding(.horizontal, 2)
                 .frame(height: 350, alignment: .top)
@@ -31,20 +34,17 @@ struct ContentView: View {
     }
 }
 
-
 extension ContentView {
     func headerView() -> some View {
-        
         HStack(alignment: .center) {
             ZStack{
                 Rectangle()
                     .opacity(0.8)
                     .clipShape(.rect(topLeadingRadius: 10, bottomTrailingRadius: 10, topTrailingRadius: 10))
                     .frame(width: 100, height: 70)
-                Text("00:00")
+                Text(timerManager.formattedTime)
                     .foregroundStyle(.white)
                     .font(.title3.bold())
-                
             }
             Spacer()
             Text("Flags Challenge")
@@ -55,8 +55,6 @@ extension ContentView {
                 .offset(x: -25)
             Spacer()
         }
-        
-           
     }
 }
 
